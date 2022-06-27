@@ -240,10 +240,45 @@ molestiae ratione nostrum vero!
             </article>
             <article>
                 <header>
-                    <h2></h2>
+                    <h2>Intégrer des images sur une page web</h2>
                 </header>
                 <main>
-
+                    <p>
+                        Par défaut, la balise <code>&lt;img&gt;</code> est utilisée, elle a besoin d'attributs pour aller chercher et afficher l'image.<br />
+                        <code>&lt;img src="./images/image.png" /&gt;</code><br />
+                        src = la source de l'image.<br />
+                        Pour être dans les normes du W3C (world Wide Web Consortium, les garant des bonnes pratiques HTML), il faut ajouter l'attribut alt, qui défini un texte alternatif au cas ou l'image serait "cassée", le texte s'affichera en lieu et place de l'image<br />
+                        <code>&lt;img src="./images/image.png" alt="une image exemple" /&gt;</code><br />
+                        <img src="./images/image.png" alt="une image exemple" height="100" width="200" />
+                    </p>
+                    <a 
+                        href="./images/skeletor-poster-masters-of-the-universe.jpg" 
+                        title="Lien vers l'image Skeletor par James White" 
+                        target="_blank" 
+                        >
+                        <img src="./images/skeletor-poster-masters-of-the-universe.jpg" width="200" alt="Skeletor par James White" />
+                    </a>
+                    <p>
+                        Avec HTML5, une balise sémantique est 
+                        maintenant utilisée pour contenir les balises img, 
+                        et permet aussi d'associé à cette image une légende 
+                        qui sera reconnue comme légende de l'image par le SEO : 
+                        la balise <code>&lt;figure&gt;</code>
+                    </p>
+                    <figure>
+                        <a 
+                            href="./images/batman-d-apres-bruce-timm-2oaz.jpg" 
+                            title="Lien vers l'image batman d'après Bruce Timm" 
+                            target="_blank">
+                            <img 
+                                src="./images/batman-d-apres-bruce-timm-2oaz.jpg" 
+                                alt="batman d'après Bruce Timm" width="200" />
+                        </a>
+                        <figcaption>
+                            batman d'après Bruce Timm <br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id debitis natus iusto saepe culpa deserunt minus dolorem ducimus. Rerum excepturi, quod similique quisquam aperiam nihil optio illo adipisci quo id?
+                        </figcaption>
+                    </figure>
                 </main>
                 <footer>
                     <a href="#">
