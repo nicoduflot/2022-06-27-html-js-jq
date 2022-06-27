@@ -98,10 +98,33 @@ molestiae ratione nostrum vero!
             </article>
             <article>
                 <header>
-                    <h2></h2>
+                    <h2>Balises sur le texte</h2>
                 </header>
                 <main>
-
+                    <p>
+                        Il existe des balise inline pour modifier l'apparence du texte.
+                    </p>
+                    <p>
+                        Par exemple, pour mettre simplement en <b>gras</b>, on utilise la balise <code>&lt;b&gt;</code>, 
+                        mais si le texte mis en gras a une importance sur la pertinence du contenu niveau SEO, 
+                        <strong>utilisera la balise</strong> <code>&lt;strong&gt;</code>.
+                        Il existe le même comportement pour <i>l'italique</i> : la balise <code>&lt;i&gt;</code> 
+                        pour simplement l'afficher visuellement, 
+                        <em>la balise <code>&lt;em&gt;</code></em>, qui elle ajoute de l'emphase sur le contenu.
+                    </p>
+                    <p>
+                        Autrefois, pour changer la couleur, la police d'un morceau de texte, on utilisait 
+                        <font color="#f00" face="Arial" size="5">font</font>, 
+                        maintenant, on va plutôt utiliser une balise générale inline <code>&lt;span&gt;</code>.
+                        <span style="color: red;font-family:Arial, Helvetica, sans-serif; font-size: 2rem;">exemple</span>
+                    </p>
+                    <p>
+                        Il existe d'autres balise qui agissent sur le texte. <br />
+                        <s>texte biffé</s><br />
+                        <u>texte souligné</u> (pas un lien)<br />
+                        <mark>texte surligne</mark><br />
+                        H<sub>2</sub>SO<sub>4</sub><sup>2-</sup><br />
+                    </p>
                 </main>
                 <footer>
                     <a href="#">
@@ -113,10 +136,68 @@ molestiae ratione nostrum vero!
             </article>
             <article>
                 <header>
-                    <h2></h2>
+                    <h2>Les tableaux en HTML</h2>
                 </header>
                 <main>
-
+                    <table>
+                        <caption>
+                            Tableau des jeux cool dans les années 90
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>N° du classement</th>
+                                <th>Nom du jeu</th>
+                                <th>Editeur</th>
+                                <th>Développeur</th>
+                                <th>Année de sortie</th>
+                                <th>Prix de sortie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <td>Duke Nukem 3d</td>
+                                <td>Apogee Software</td>
+                                <td>3d Realms</td>
+                                <td>1996</td>
+                                <td>250 fr</td>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <td>Shadow Warrior</td>
+                                <td>Apogee Software</td>
+                                <td>3d Realms</td>
+                                <td>1997</td>
+                                <td>250 fr</td>
+                            </tr>
+                            <tr>
+                                <th>3</th>
+                                <td>Carmageddon</td>
+                                <td>Interplay</td>
+                                <td>Stainless Games</td>
+                                <td>1997</td>
+                                <td>200 fr</td>
+                            </tr>
+                            <tr>
+                                <th>4</th>
+                                <td>Carmageddon II</td>
+                                <td>Sales Curve Interactive</td>
+                                <td>Stainless Games</td>
+                                <td>1998</td>
+                                <td>250 fr</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>N° du classement</th>
+                                <th>Nom du jeu</th>
+                                <th>Editeur</th>
+                                <th>Développeur</th>
+                                <th>Année de sortie</th>
+                                <th>Prix de sortie</th>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </main>
                 <footer>
                     <a href="#">
