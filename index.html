@@ -198,6 +198,37 @@ molestiae ratione nostrum vero!
                             </tr>
                         </tfoot>
                     </table>
+                    <h3>Les "fusions" de cellules des tableaux HTML</h3>
+                    <table border="1">
+                        <tr>
+                            <td colspan="3">&nbsp;cellule 1&nbsp;</td>
+                            <td>&nbsp;cellule 2&nbsp;</td>
+                            <td>&nbsp;cellule 3&nbsp;</td>
+                            <td>&nbsp;cellule 4&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">&nbsp;cellule 1&nbsp;</td>
+                            <td>&nbsp;cellule 2&nbsp;</td>
+                            <td>&nbsp;cellule 3&nbsp;</td>
+                            <td>&nbsp;cellule 4&nbsp;</td>
+                            <td>&nbsp;cellule 5&nbsp;</td>
+                            <td>&nbsp;cellule 6&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;cellule 1&nbsp;</td>
+                            <td colspan="3" rowspan="3">&nbsp;cellule 2&nbsp;</td>
+                            <td>&nbsp;cellule 3&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;cellule 1&nbsp;</td>
+                            <td>&nbsp;cellule 2&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;cellule 1&nbsp;</td>
+                            <td>&nbsp;cellule 2&nbsp;</td>
+                            <td>&nbsp;cellule 3&nbsp;</td>
+                        </tr>
+                    </table>
                 </main>
                 <footer>
                     <a href="#">
