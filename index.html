@@ -326,7 +326,15 @@ molestiae ratione nostrum vero!
                             Extrait de la vidéo "Big Buck Bunny"
                         </figcaption>
                     </figure>
-                    
+                    <h3>La balise audio</h3>
+                    <figure>
+                        <img src="./images/diablo_02.jpg" la place du village de Tristram />
+                        <figcaption>
+                            <audio controls preload="auto">
+                                <source src="./media/diablo_town.mp3" type="audio/mp3" />
+                            </audio>
+                        </figcaption>
+                    </figure>
                 </main>
                 <footer>
                     <a href="#">
@@ -338,10 +346,31 @@ molestiae ratione nostrum vero!
             </article>
             <article>
                 <header>
-                    <h2></h2>
+                    <h2>Inclure des vidéo (ou autres média) hébergés par des sites tiers</h2>
                 </header>
                 <main>
-
+                    <p>
+                        Youtube, dailymotion, etc propose de partager 
+                        leur contenu vidéo via des cadres intégrés (iframe) 
+                        dont ils fournissent le code HTML dans leurs boutons de partage.
+                    </p>
+                    <p>
+                        exemple d'iframe
+                    </p>
+                    <iframe src="https://www.youtube.com/embed/5yx6BWlEVcY" width="200" height="200"></iframe>
+                    <h4>Vidéo youtube</h4>
+                    <iframe 
+                        width="560" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/1H5g4Mh-G6I" title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h4>Vidéo dailymotion</h4>
+                    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+                        <iframe style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden" frameborder="0" type="text/html" src="https://www.dailymotion.com/embed/video/xxkxw" width="100%" height="100%" allowfullscreen ></iframe>
+                    </div>
+                    <p>
+                        Dailymotion propose un partage qui permet automatiquement l'adaptatif, contrairement à youtube.
+                    </p>
                 </main>
                 <footer>
                     <a href="#">
