@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +11,7 @@
         ici on va aller chercher les ressources scripts (js, bibliothèques js, etc)
     -->
 </head>
+
 <body>
     <header>
         <h1>Formation HTML5 - CSS3 - JavaScript - jQuery</h1>
@@ -17,6 +19,7 @@
     <nav>
         <ul>
             <li><a href="./">Accueil</a></li>
+            <li><a href="./contact.html">Nous contacter</a></li>
             <li><a href="./cssavance.html">CSS avancé</a></li>
             <li><a href="./article.html">Article</a></li>
             <li><a href="./cssgrid.html">Grilles CSS</a></li>
@@ -35,7 +38,10 @@
                 </header>
                 <main>
                     <p>
-                        Bruce Walter Timm, né le 8 février 1961, est un créateur américain de dessins animés spécialisé dans les super-héros. Il a également réalisé quelques comics comme scénariste ou dessinateur. Il est notamment connu pour avoir cocréé avec Paul Dini la série télévisée d'animation à succès Batman en 1992.
+                        Bruce Walter Timm, né le 8 février 1961, est un créateur américain de dessins animés spécialisé
+                        dans les super-héros. Il a également réalisé quelques comics comme scénariste ou dessinateur. Il
+                        est notamment connu pour avoir cocréé avec Paul Dini la série télévisée d'animation à succès
+                        Batman en 1992.
                     </p>
                     <p>
                         En 2016, Bruce Timm a été l'invité du Paris Comics Expo.
@@ -60,22 +66,28 @@
                         Il n'y a pas que la balise <code>&lt;p&gt; &lt;/p&gt;</code>
                     </p>
                     <p>
-                        Il y a deux type de balises qui contiennent du texte, celles avec un "display block" d'autres "inline".
+                        Il y a deux type de balises qui contiennent du texte, celles avec un "display block" d'autres
+                        "inline".
                     </p>
-                    <ul> <!-- ul => unordered list ou liste non ordonnée -->
-                        <li> <!-- li => list item ou élément de liste -->
-                            Block : <br />la balise prend tout l'espace en largeur, et ne peut pas contenir d'autre balise de texte de type block, sauf contre-indication en CSS.<br />
+                    <ul>
+                        <!-- ul => unordered list ou liste non ordonnée -->
+                        <li>
+                            <!-- li => list item ou élément de liste -->
+                            Block : <br />la balise prend tout l'espace en largeur, et ne peut pas contenir d'autre
+                            balise de texte de type block, sauf contre-indication en CSS.<br />
                             En revanche, elle peut contenir des balise de texte de type inline
                         </li>
                         <li>
-                            Inline :  <br />ces balises entourent le texte, sans générer de marge, d'espace, sauf contre-indication en CSS.
+                            Inline : <br />ces balises entourent le texte, sans générer de marge, d'espace, sauf
+                            contre-indication en CSS.
                         </li>
                     </ul>
                     <p>
                         Au niveau des balises block :
                     </p>
                     <blockquote>
-                        <q><cite>Alea Jacta Est</cite></q><br /> <!-- br => break row ou casser la ligne (d'affichage surle navigateur) -->
+                        <q><cite>Alea Jacta Est</cite></q><br />
+                        <!-- br => break row ou casser la ligne (d'affichage surle navigateur) -->
                         Jules César
                     </blockquote>
                     <pre>
@@ -105,18 +117,19 @@ molestiae ratione nostrum vero!
                         Il existe des balise inline pour modifier l'apparence du texte.
                     </p>
                     <p>
-                        Par exemple, pour mettre simplement en <b>gras</b>, on utilise la balise <code>&lt;b&gt;</code>, 
-                        mais si le texte mis en gras a une importance sur la pertinence du contenu niveau SEO, 
+                        Par exemple, pour mettre simplement en <b>gras</b>, on utilise la balise <code>&lt;b&gt;</code>,
+                        mais si le texte mis en gras a une importance sur la pertinence du contenu niveau SEO,
                         <strong>utilisera la balise</strong> <code>&lt;strong&gt;</code>.
-                        Il existe le même comportement pour <i>l'italique</i> : la balise <code>&lt;i&gt;</code> 
-                        pour simplement l'afficher visuellement, 
+                        Il existe le même comportement pour <i>l'italique</i> : la balise <code>&lt;i&gt;</code>
+                        pour simplement l'afficher visuellement,
                         <em>la balise <code>&lt;em&gt;</code></em>, qui elle ajoute de l'emphase sur le contenu.
                     </p>
                     <p>
-                        Autrefois, pour changer la couleur, la police d'un morceau de texte, on utilisait 
-                        <font color="#f00" face="Arial" size="5">font</font>, 
+                        Autrefois, pour changer la couleur, la police d'un morceau de texte, on utilisait
+                        <font color="#f00" face="Arial" size="5">font</font>,
                         maintenant, on va plutôt utiliser une balise générale inline <code>&lt;span&gt;</code>.
-                        <span style="color: red;font-family:Arial, Helvetica, sans-serif; font-size: 2rem;">exemple</span>
+                        <span
+                            style="color: red;font-family:Arial, Helvetica, sans-serif; font-size: 2rem;">exemple</span>
                     </p>
                     <p>
                         Il existe d'autres balise qui agissent sur le texte. <br />
@@ -244,39 +257,39 @@ molestiae ratione nostrum vero!
                 </header>
                 <main>
                     <p>
-                        Par défaut, la balise <code>&lt;img&gt;</code> est utilisée, elle a besoin d'attributs pour aller chercher et afficher l'image.<br />
+                        Par défaut, la balise <code>&lt;img&gt;</code> est utilisée, elle a besoin d'attributs pour
+                        aller chercher et afficher l'image.<br />
                         <code>&lt;img src="./images/image.png" /&gt;</code><br />
                         src = la source de l'image.<br />
-                        Pour être dans les normes du W3C (world Wide Web Consortium, les garant des bonnes pratiques HTML), il faut ajouter l'attribut alt, qui défini un texte alternatif au cas ou l'image serait "cassée", le texte s'affichera en lieu et place de l'image<br />
+                        Pour être dans les normes du W3C (world Wide Web Consortium, les garant des bonnes pratiques
+                        HTML), il faut ajouter l'attribut alt, qui défini un texte alternatif au cas ou l'image serait
+                        "cassée", le texte s'affichera en lieu et place de l'image<br />
                         <code>&lt;img src="./images/image.png" alt="une image exemple" /&gt;</code><br />
                         <img src="./images/image.png" alt="une image exemple" height="100" width="200" />
                     </p>
-                    <a 
-                        href="./images/skeletor-poster-masters-of-the-universe.jpg" 
-                        title="Lien vers l'image Skeletor par James White" 
-                        target="_blank" 
-                        >
-                        <img src="./images/skeletor-poster-masters-of-the-universe.jpg" width="200" alt="Skeletor par James White" />
+                    <a href="./images/skeletor-poster-masters-of-the-universe.jpg"
+                        title="Lien vers l'image Skeletor par James White" target="_blank">
+                        <img src="./images/skeletor-poster-masters-of-the-universe.jpg" width="200"
+                            alt="Skeletor par James White" />
                     </a>
                     <p>
-                        Avec HTML5, une balise sémantique est 
-                        maintenant utilisée pour contenir les balises img, 
-                        et permet aussi d'associé à cette image une légende 
-                        qui sera reconnue comme légende de l'image par le SEO : 
+                        Avec HTML5, une balise sémantique est
+                        maintenant utilisée pour contenir les balises img,
+                        et permet aussi d'associé à cette image une légende
+                        qui sera reconnue comme légende de l'image par le SEO :
                         la balise <code>&lt;figure&gt;</code>
                     </p>
                     <figure>
-                        <a 
-                            href="./images/batman-d-apres-bruce-timm-2oaz.jpg" 
-                            title="Lien vers l'image batman d'après Bruce Timm" 
-                            target="_blank">
-                            <img 
-                                src="./images/batman-d-apres-bruce-timm-2oaz.jpg" 
-                                alt="batman d'après Bruce Timm" width="200" />
+                        <a href="./images/batman-d-apres-bruce-timm-2oaz.jpg"
+                            title="Lien vers l'image batman d'après Bruce Timm" target="_blank">
+                            <img src="./images/batman-d-apres-bruce-timm-2oaz.jpg" alt="batman d'après Bruce Timm"
+                                width="200" />
                         </a>
                         <figcaption>
                             batman d'après Bruce Timm <br />
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id debitis natus iusto saepe culpa deserunt minus dolorem ducimus. Rerum excepturi, quod similique quisquam aperiam nihil optio illo adipisci quo id?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id debitis natus iusto saepe culpa
+                            deserunt minus dolorem ducimus. Rerum excepturi, quod similique quisquam aperiam nihil optio
+                            illo adipisci quo id?
                         </figcaption>
                     </figure>
                 </main>
@@ -296,25 +309,25 @@ molestiae ratione nostrum vero!
                 </header>
                 <main>
                     <p>
-                        Les media vidéo et audio s'affichent par le biais de la balise <code>&lt;video&gt;</code> pour les video, 
+                        Les media vidéo et audio s'affichent par le biais de la balise <code>&lt;video&gt;</code> pour
+                        les video,
                         et <code>&lt;audio&gt;</code> pour l'audio
                     </p>
                     <h3>La balise video</h3>
                     <figure>
-                        <video 
-                            src="./media/Fallout-4-Launch-Trailer.mp4" 
-                            poster="./images/cropped-wallhaven-fallout-4-01-3-1536x922.jpg" 
-                            type="video/mp4"
-                            controls
-                            muted ></video>
+                        <video src="./media/Fallout-4-Launch-Trailer.mp4"
+                            poster="./images/cropped-wallhaven-fallout-4-01-3-1536x922.jpg" type="video/mp4" controls
+                            muted></video>
                     </figure>
                     <p>
-                        Ici, la source de la vidéo est directement appelée dans les attributs de la balise video, mais 
+                        Ici, la source de la vidéo est directement appelée dans les attributs de la balise video, mais
                         certains formats ne sont pas supportés par tous les navigateurs.
                     </p>
                     <p>
-                        Si on héberge des vidéos et qu'on veut proposer des formats adaptés aux navigateurs et bandes passantes des visiteurs,
-                        il faut préciser plusieurs source de la même vidéo, entre <code>&lt;video&gt;</code> et <code>&lt;/video&gt;</code>.
+                        Si on héberge des vidéos et qu'on veut proposer des formats adaptés aux navigateurs et bandes
+                        passantes des visiteurs,
+                        il faut préciser plusieurs source de la même vidéo, entre <code>&lt;video&gt;</code> et
+                        <code>&lt;/video&gt;</code>.
                         Le navigateur fera le choix de la source la plus adaptée.
                     </p>
                     <figure>
@@ -350,23 +363,30 @@ molestiae ratione nostrum vero!
                 </header>
                 <main>
                     <p>
-                        Youtube, dailymotion, etc propose de partager 
-                        leur contenu vidéo via des cadres intégrés (iframe) 
+                        Youtube, dailymotion, etc propose de partager
+                        leur contenu vidéo via des cadres intégrés (iframe)
                         dont ils fournissent le code HTML dans leurs boutons de partage.
                     </p>
                     <p>
-                        exemple d'iframe
+                        exemple d'iframe<br />
+                        <a href="./test/iframetest.html" target="iframetest">
+                            lien vers iframetest cible iframetest
+                        </a><br />
+                        <a href="./test/test.html" target="iframetest">
+                            lien vers test cible iframetest
+                        </a>
                     </p>
-                    <iframe src="https://www.youtube.com/embed/5yx6BWlEVcY" width="200" height="200"></iframe>
+                    <iframe src="./test/test.html" name="iframetest" width="300" height="300"></iframe>
                     <h4>Vidéo youtube</h4>
-                    <iframe 
-                        width="560" 
-                        height="315" 
-                        src="https://www.youtube.com/embed/1H5g4Mh-G6I" title="YouTube video player" frameborder="0" 
-                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/1H5g4Mh-G6I"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                     <h4>Vidéo dailymotion</h4>
                     <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-                        <iframe style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden" frameborder="0" type="text/html" src="https://www.dailymotion.com/embed/video/xxkxw" width="100%" height="100%" allowfullscreen ></iframe>
+                        <iframe style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden"
+                            frameborder="0" type="text/html" src="https://www.dailymotion.com/embed/video/xxkxw"
+                            width="100%" height="100%" allowfullscreen></iframe>
                     </div>
                     <p>
                         Dailymotion propose un partage qui permet automatiquement l'adaptatif, contrairement à youtube.
@@ -381,58 +401,42 @@ molestiae ratione nostrum vero!
                 </footer>
             </article>
         </section>
-        <section>
-            <article>
-                <header>
-                    <h2></h2>
-                </header>
-                <main>
-
-                </main>
-                <footer>
-                    <a href="#">
-                        <button>
-                            Lire plus
-                        </button>
-                    </a>
-                </footer>
-            </article>
-            <article>
-                <header>
-                    <h2></h2>
-                </header>
-                <main>
-
-                </main>
-                <footer>
-                    <a href="#">
-                        <button>
-                            Lire plus
-                        </button>
-                    </a>
-                </footer>
-            </article>
-        </section>
-        <section>
-            <article>
-                <header>
-                    <h2></h2>
-                </header>
-                <main>
-
-                </main>
-                <footer>
-                    <a href="#">
-                        <button>
-                            Lire plus
-                        </button>
-                    </a>
-                </footer>
-            </article>
-        </section>
     </main>
     <footer>
+        <div>
+            <h3>Sitemap</h3>
+            <ul>
+                <li><a href="./">Accueil</a></li>
+                <li><a href="./contact.html">Nous contacter</a></li>
+                <li><a href="./cssavance.html">CSS avancé</a></li>
+                <li><a href="./article.html">Article</a></li>
+                <li><a href="./cssgrid.html">Grilles CSS</a></li>
+                <li><a href="./bootstrap.html">Bootstrap</a></li>
+                <li><a href="./jsbase">JS bases</a></li>
+                <li><a href="./jquerybase">jQuery bases</a></li>
+                <li><a href="./jquerycss">jQuery CSS</a></li>
+                <li><a href="./jqueryajax">jQuery AJAX</a></li>
+
+            </ul>
+        </div>
+        <div>
+            <h3>Liens utiles</h3>
+            <ul>
+                <li><a href="#">CGU</a></li>
+                <li><a href="#">CGV</a></li>
+                <li><a href="./contact.html">Nous contacter</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Nos RS</h3>
+            <ul>
+                <li>Facebook</li>
+                <li>twitter</li>
+                <li>Instagramm</li>
+            </ul>
+        </div>
 
     </footer>
 </body>
+
 </html>
