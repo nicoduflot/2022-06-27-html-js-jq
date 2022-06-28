@@ -61,15 +61,48 @@ si 2em = 32 px, 1em = 16px
     padding: 5px;
 }
 
+.textImage{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
 /* déclarations css générales sur les éléments */
 
 h1{
     margin: 0;
 }
 
-img, 
+figure{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+img,
 video{
     max-width: 100%;
+}
+
+ul.oeuvres, ul.oeuvres ul{
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+ul.filmo, ul.filmo ul{
+    list-style-type: none;
+    padding-left: 20px;
+    columns: 2;
+}
+
+table{
+    border-collapse: collapse;
+    max-width: 100%;
+}
+
+table td, table th{
+    word-break: break-word;
 }
 
 /* déclarations css sur les éléments dans la structure */
@@ -123,5 +156,92 @@ body > nav > ul > li > a:hover{
 body > main{
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    padding: 5px;
+    width: 100%;
+}
+
+body > main > section > article{
+    background-color: var(--nav-bg-color);
+    color: var(--nav-link-color);
+    padding: 5px;
+    margin-top: 10px;
+}
+
+@media (min-width: 576px){
+    body > main{
+        width: 540px;
+    }
+}
+
+@media (min-width: 768px){
+    body > main{
+        width: 720px;
+    }
+}
+
+@media (min-width: 992px){
+    body > main{
+        width: 960px;
+    }
+
+    .textImage div{
+        max-width: 600px;
+    }
+    
+    .textImage figure{
+        max-width: 300px;
+    }
+
+    body > main > section{
+       display: flex;
+       flex-wrap: wrap;
+    }
+
+    body > main > section > article{
+        width: 50%;
+    }
+
+    body > main > section > article:last-child:nth-of-type(2n+1){
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px){
+    body > main{
+        width: 1140px;
+    }
+
+    .textImage div{
+        max-width: 800px;
+    }
+    
+    .textImage figure{
+        max-width: 300px;
+    }
+}
+
+@media (min-width: 1400px){
+    body > main{
+        width: 1320px;
+    }
+
+    .textImage div{
+        max-width: 1000px;
+    }
+    
+    .textImage figure{
+        max-width: 300px;
+    }
+
+    body > main > section > article{
+        width: 33%;
+    }
+
+    body > main > section > article:last-child:nth-of-type(3n+1){
+        width: 100%;
+    }
+
+    body > main > section > article:last-child:nth-of-type(3n+2){
+        width: 66%;
+    }
 }
