@@ -10,14 +10,30 @@
         ici on va aller chercher les ressources css
         ici on va aller chercher les ressources scripts (js, bibliothèques js, etc)
     -->
-    <link rel="stylesheet" href="./css/style.css" media="screen" />
-    <link rel="stylesheet" href="./css/print.css" media="print" />
+    <link rel="stylesheet" href="./css/bootstrap.css" media="all" />
+    <script src="./js/bootstrap.bundle.js"></script>
 </head>
 
 <body>
     <header>
         <h1>Formation HTML5 - CSS3 - JavaScript - jQuery</h1>
     </header>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link disabled">Disabled</a>
+            </div>
+          </div>
+        </div>
+      </nav>
     <nav>
         <ul>
             <li><a href="./">Accueil</a></li>
@@ -32,9 +48,9 @@
             <li><a href="./jqueryajax">jQuery AJAX</a></li>
         </ul>
     </nav>
-    <main>
-        <section>
-            <article>
+    <main class="container">
+        <section class="row">
+            <article class="col-md-6 col-xl-4">
                 <header>
                     <h2>Bruce Timm</h2>
                 </header>
@@ -71,7 +87,7 @@
                     </a>
                 </footer>
             </article>
-            <article>
+            <article class="col-md-6 col-xl-4">
                 <header>
                     <h2>Introduction</h2>
                 </header>
@@ -124,7 +140,7 @@ molestiae ratione nostrum vero!
                     </a>
                 </footer>
             </article>
-            <article>
+            <article class="col-md-6 col-xl-4">
                 <header>
                     <h2>Balises sur le texte</h2>
                 </header>
@@ -163,7 +179,7 @@ molestiae ratione nostrum vero!
                     </a>
                 </footer>
             </article>
-            <article>
+            <article class="col-md-6 col-xl-4">
                 <header>
                     <h2>Les tableaux en HTML</h2>
                 </header>
@@ -267,7 +283,7 @@ molestiae ratione nostrum vero!
                     </a>
                 </footer>
             </article>
-            <article>
+            <article class="col-md-6 col-xl-4">
                 <header>
                     <h2>Intégrer des images sur une page web</h2>
                 </header>
@@ -316,8 +332,8 @@ molestiae ratione nostrum vero!
                 </footer>
             </article>
         </section>
-        <section>
-            <article>
+        <section class="row">
+            <article class="col-md-6 col-xl-4">
                 <header>
                     <h2>Intégrer des fichiers vidéo sur une page</h2>
                 </header>
@@ -371,7 +387,7 @@ molestiae ratione nostrum vero!
                     </a>
                 </footer>
             </article>
-            <article>
+            <article class="col-md-6 col-xl-4">
                 <header>
                     <h2>Inclure des vidéo (ou autres média) hébergés par des sites tiers</h2>
                 </header>
