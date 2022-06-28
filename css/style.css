@@ -1,0 +1,103 @@
+
+/*
+dimension les plus vues en web :
+px      =>  Pixel
+em      =>  cadratin : unité de mesure en print sur les presses 
+            le cadratin se calcul par rapport à la taille du cadratin parent
+rem     =>  cadratin racine : se calcul par rapport à la taille racine de police
+%       =>  pourcentage, se calcule par rapport à l'élément qui le contient
+vw & vh =>  viewport width & viewport height : correspond à la taille 
+            d'affichage de la page en largeur et en hauteur
+            si affichage en largeur 768px alors 20vw = 153.6 px
+
+si 2em = 32 px, 1em = 16px
+
+*/
+
+:root{
+    /*
+    le :root permet de "surcharger" le style css imposé par le navigatuer,
+    mais permet aussi d'autres actions qui vont faciliter 
+    la création du style d'un site
+    */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+*, *::before, *::after{
+    box-sizing:border-box;
+}
+
+/* test sur le em et rem */
+.deuxEm{
+    font-size: 2em;
+}
+
+.deuxRem{
+    font-size: 2rem;
+}
+
+.divContent100{
+    border: 1px solid black;
+    height: 102px;
+    width: 102px;
+}
+
+.divTest{
+    background-color: coral;
+    height: 100%;
+    width: 50%;
+}
+
+h1{
+    margin: 0;
+}
+
+img{
+    max-width: 100%;
+}
+
+video{
+    max-width: 100%;
+}
+
+body{
+    margin:0;
+}
+
+body > header{
+    height: 33vh;
+    background: url('../images/cropped-wallhaven-fallout-4-01-3-1536x922.jpg');
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body > header > h1{
+    color: white;
+    text-shadow: 0 0 10px black;
+}
+
+body > nav > ul{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    line-height: 2rem;
+    margin: 0;
+}
+
+body > nav > ul > li > a{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.test-size{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border: 1px solid black;
+    padding: 5px;
+}
