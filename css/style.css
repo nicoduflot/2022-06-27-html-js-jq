@@ -21,11 +21,16 @@ si 2em = 32 px, 1em = 16px
     la création du style d'un site
     */
     font-family: Arial, Helvetica, sans-serif;
+    --nav-bg-color: #1E1917; 
+    /* les couleurs web sont en rvb */
+    --nav-link-color: rgb(168, 177, 172);
 }
 
 *, *::before, *::after{
     box-sizing:border-box;
 }
+
+/* déclaration des classes css*/
 
 /* test sur le em et rem */
 .deuxEm{
@@ -48,17 +53,26 @@ si 2em = 32 px, 1em = 16px
     width: 50%;
 }
 
+.test-size{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+/* déclarations css générales sur les éléments */
+
 h1{
     margin: 0;
 }
 
-img{
-    max-width: 100%;
-}
-
+img, 
 video{
     max-width: 100%;
 }
+
+/* déclarations css sur les éléments dans la structure */
 
 body{
     margin:0;
@@ -84,20 +98,30 @@ body > nav > ul{
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     line-height: 2rem;
     margin: 0;
+    background-color: var(--nav-bg-color);
 }
 
-body > nav > ul > li > a{
+body > nav > ul > li > a,
+body > nav > ul > li > a:visited{
     padding-left: 10px;
     padding-right: 10px;
+    color: var(--nav-link-color);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
 }
 
-.test-size{
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-    border: 1px solid black;
-    padding: 5px;
+body > nav > ul > li > a:hover{
+    background-color: var(--nav-link-color);
+    color: var(--nav-bg-color);
+}
+
+body > main{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 }
