@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/rappelscss.css" />
+    <style>
+        /* du CSS en page */
+    </style>
+</head>
+<body>
+    <!--
+        on a appliqué dans le CSS les police suivantes à body :
+        font-family: Arial, Helvetica, sans-serif;
+    -->
+    <h1>Titre</h1>
+    <!-- 
+        comme on n'a pas précisé une police particulière 
+        pour H1, il applique celle imposée à body 
+        font-family: Arial, Helvetica, sans-serif; 
+    -->
+    <article> 
+        <!-- 
+            x sélécteurs css possibles quelques exemples,  : 
+                article{}           => impacte tous les articles où qu'ils soient placés dans la page
+                body article{}      => impacte tous les articles où qu'ils soient placés dans l'élément body
+                body > article{}    => impacte tous les articles qui sont des enfants directs de body
+                ...
+        -->
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis beatae labore tenetur. Dolores sit cum fugit harum est iure mollitia vero animi voluptatibus quae accusantium, laudantium doloribus inventore expedita?
+        </p>
+        <ul>
+            <li>element</li>
+            <li>element</li>
+            <li>element</li>
+            <li>element</li>
+            <li>element</li>
+        </ul>
+    </article>
+    <section>
+        <article>
+            <!-- 
+                x sélécteurs css possibles quelques exemples,  : 
+                    article{}                       => impacte tous les articles où qu'ils soient placés dans la page
+                    body article{}                  => impacte tous les articles où qu'ils soient placés dans l'élément body
+                    body section article{}          => impacte tous les articles où qu'ils soient placés dans un élément section 
+                                                        si cet élément section est enfant direct ou non de l'élément body, 
+                    body > section > article{}      => impacte tous les articles qui sont des enfants directs de section enfant direct de body
+                    ...
+            -->
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis beatae labore tenetur. Dolores sit cum fugit harum est iure mollitia vero animi voluptatibus quae accusantium, laudantium doloribus inventore expedita?
+            </p>
+            <ul>
+                <li>element</li>
+                <li>element</li>
+                <li>element</li>
+                <li>element</li>
+                <li>element</li>
+            </ul>
+        </article>
+        <section>
+            <article> 
+               
+            </article>
+        </section>
+    </section>
+</body>
+</html>

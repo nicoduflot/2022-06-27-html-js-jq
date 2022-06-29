@@ -1,0 +1,80 @@
+/*
+CSS => Cascading Style Sheet => feuille de style en cascade
+
+feuile de style => des propriétés changeants l'apparence et le comportement a certains évènements des élémént html d'une page
+
+En cascade => les éléments ayant des propriétés ajoutées par le css, 
+    si ils contiennent des éléments enfants, 
+    ces éléments enfants héritent de ces propriétés.
+    Pour changer la valeur de cet héritage, 
+    il faut alors spécifier des propriétés CSS aux éléments enfants.
+
+Pour appliquer des propriétés CSS à un élément, il faut utiliser des sélecteurs.
+
+Trois types de sélécteurs : 
+    - balise    exemple selecteur pour l'élément body => body{}
+    - classe    exemple selecteur pour un élément ayant la classe exemple => .exemple{}
+    - id        exemple selecteur pour un élément ayant l'id exemple => #exemple{}
+
+    il est possible, pour cibler précisément certains éléments ou ensemble d'éléments, de combiner les sélécteurs
+
+    exemple tous les articles présents dans l'élément body => body article{}
+        ici, que l'article soit un enfant direct de body, 
+        ou placé dans d'autres éléments présents dans body, 
+        il sera impacté par le style CSS
+    
+    exemple tous les articles avec la classe exemple => article.exemple{}
+        ici, la classe .exemple est collée à la suite d'article, 
+        ce qui implique que seuls les articles ayant dans leurs 
+        classe la classe exemple seront impactés par le CSS
+    
+    exemple tous les articles contenant des éléments avec la classe exemple => article .exemple{}
+        ici, la classe .exemple n'est pas collée à la suite d'article, 
+        ce qui implique que seuls les articles ayant en enfant, direct ou non, 
+        un élément possédant classe exemple, ces éléménts seront impactés par 
+        le CSS et non l'article
+*/
+
+/*
+les navigateurs possèdent une feuille de style par défaut, 
+user agent stylesheet
+dès qu'une propriété CSS est définie, on surcharge le user agent
+*/
+
+/*
+il est possible de surcharger le user agent directement en début de fichier, à l'aide du sélecteur :root{}
+les propriétés écrites à l'intérieur surcharge directement le user agent donc tous les éléments de la page 
+via l'héritage
+*/
+
+:root{
+    font-size: 1.1rem;
+    /* 
+    ici, le user agent propose la taille des police à 1rem, 
+    nous la surchargeons à 1.1 rem (+10%) dès le :root, 
+    et cela impactera tous les éléments de la page par héritage 
+    */
+}
+
+/* exemple de cascade avec la police de caractère appliquée à body */
+
+body{ /* le séléteur va impacter body et tous ses descendants */
+    font-family: Arial, Helvetica, sans-serif;
+    /* 
+    la police de caractère des éléments placés dans body appliqueront maintenant :  
+        - arial si la police est installée sur l'appareil qui se connecte au site
+        - si arial n'est pas installé, c'est helvética qui est utilisée 
+            si elle est installée sur l'appareil qui se connecte au site
+        - si helvética n'est pas installé, on utilise la première police "sans-serif" 
+            (sans empatement) installée sur l'appareil qui se connecte au site
+    */
+}
+
+ul{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /*
+    normalement, ul utilise la police de 
+    caractère imposée par body, en héritage, 
+    mais ici on lui indique d'utiliser une autre combinaison de police
+    */
+}
