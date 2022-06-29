@@ -20,7 +20,7 @@
         var prenom = 'nicolas';
         console.log(prenom);
         console.log(typeof prenom);
-        var prenom = 'tutu'; // var permet(et c'est pas top) de redéclarer une variable qui existe encore
+        var prenom = 'tutu'; /* var permet (et c'est pas top) de redéclarer une variable qui existe encore */
         console.log(prenom);
         console.log(typeof prenom);
 
@@ -28,7 +28,7 @@
         let nom = 'duflot';
         console.log(nom);
         console.log(typeof nom);
-        let nombre = 10;
+        let nombre = 10; /* un nombre a virgule s'écrit 10.2 */
         console.log(nombre);
         console.log(typeof nombre);
         nombre = '20.5';
@@ -51,10 +51,241 @@
         /*
         exercice :
             créer trois variables, monNom, monPrenom, monAge
-            et les instancier avec les valeur appropriée
+            et les instancier avec les valeurs appropriée
             les afficher ensuite en console
         */
+
+        /*
+        généralement, on utilisera en js le "camelCase" pour écrire un jom de variable
+        mon nom de jeune fille => nomJeuneFille
+        nom_jeune_fille => non
+        nom-jeune-fille => non
+        NomJeuneFille /!\ => généralement, une "variable" qui commence par une majuscule est souvent un appel à une classe
+        */
+
+        /* créer la variable monNom */
+        let monNom = 'Duflot';
+        /* créer la variable monPrenom */
+        let monPrenom = 'Nicolas';
+        /* créer la variable monAge */
+        let monAge = 42;
+
+        /* afficher les variables dans des console.log() */
+        /* façon 1 */
+        console.log(monNom);
+        console.log(monPrenom);
+        console.log(monAge);
+
+        /* façon 2 */
+        console.log(monNom, monPrenom, monAge);
+
+        /* façon 3 */
+        console.log('mon nom : ' + monNom + ', mon prénom : ' + monPrenom + ' et mon age : ' + monAge); 
+        /* ne fait plus partie des standards es6 */
+
+        /* façon 3' */
+        console.log( `mon nom : ${monNom}, mon prénom : ${monPrenom} et mon age : ${monAge}` );
+        /* 
+        façon actuelle déterminée par les standard es6 
+        le nom de cette façon de faire : interpolation de chaîne
+        */
+        /* utilité de l'interpolation de chaîne */
+        console.log( `
+-------------------------------------
+mon nom : ${monNom}, 
+mon prénom : ${monPrenom} 
+et mon age plus 10 ans : ${monAge + 10}
+-------------------------------------
+`);
+        let htmlTest = `
+<div class="machin">
+    <b>Coucou ${monPrenom} ${monNom}, l'ancien</b>
+</div>
+        `;
+        console.log(htmlTest);
+
+        /* 
+        une variable qui est globale est par exemple déclarée en dehors des fonctions, 
+        si on la redéclare dans une fonction et qu'on lui assigne une valeur, la valeur 
+        va écraser la variable déclarée en dehors de la fonction
+        */
+
+        let machin = 10;
+
+        function afficheMachin(){
+            let machin = 'tantine';
+            console.log(machin);
+        }
+
+        afficheMachin();
+        console.log(machin);
+
+        var truc = 12;
+
+        function afficheTruc(){
+            truc = 'tonton';
+            console.log(truc);
+        }
+
+        afficheTruc();
+        console.log(truc);
+
+        let x = 10;
+        let y = '2';
+        console.log( parseFloat(x) + parseFloat(y) );
+
+        /*  comparer les valeur */
+        /*
+        égalité                 ==      : compare la valeur
+                                            '2' == 2    => c'est vrai
+                                ===     : compare la valeur ET le type
+                                            '2' === 2   => c'est faux
+                                            2 === 2     => c'est vrai
+        différence              !=      : compare la valeur
+                                            '2' !== 2    => c'est faux
+                                            '3' !== 2    => c'est vrai
+                                !==     : compare la valeur
+                                            '2' !== 2    => c'est vrai
+
+        plus petit que          <       
+        plus grand que          >
+        inférieur ou égal à     <=
+        supérieur ou égal à     >=
+        */
+
+        console.log('2' == 2);
+        console.log('2' === 2);
+
+        /* 
+        Opérateurs mathématiques 
+        + - / % (modulo) * ** (puissance)
+        */
         
+        console.log(5/2); /* affiche 2.5 */
+        console.log(5%2); /* affiche  */
+
+        let res = 0;
+        /* 2 puissance 8*/
+        res = Math.pow(2, 8);
+        console.log(res);
+        let resPow = 2**8;
+        console.log(resPow);
+
+        /* 
+        Opérateurs logiques 
+        et ( && ), ou ( || ), non ( ! ), ou exclusif ( ^ )
+        */
+
+        let a = true;
+        let b = true;
+        let c = false;
+        let d = false;
+        console.log('opérateur &&');
+        console.log(`a && b = ${a && b}`); /* retourne true */
+        /* si a est vrai ET b est vrai, alors a && b retourne vrai */
+        console.log(`a && c = ${a && c}`); /* retourne false */
+        /* si a est vrai ET c est faux, alors a && b retourne faux */
+        console.log('opérateur ||');
+        console.log(`a || b = ${a || b}`); /* retourne  true*/
+        /* si a est vrai OU b est vrai, alors a || b retourne vrai */
+        console.log(`a || c = ${a || c}`); /* retourne  true*/
+        /* si a est vrai ET c est faux, alors a || c retourne vrai */
+        console.log(`c || d = ${c || d}`); /* retourne  false*/
+        /* si c est faux ET d est faux, alors c || d retourne faux */
+        console.log('opérateur !');
+        console.log(`!a = ${!a}`); /* retourne false */
+        console.log(`!c = ${!c}`); /* retourne true  */
+
+        let e;
+        console.log(e);
+        if(e){
+            console.log(`la variable e existe et contient ${e}`);
+        }
+
+        if(!e){
+            console.log(`la variable e existe mais n'est pas définie : e = ${e}`);
+        }
+
+        console.log('opérateur ^ ');
+        console.log(`a ^ b = ${a ^ b}`); /* retourne  false*/
+        /* si a est vrai OUX b est vrai, alors a ^ b retourne faux */
+        console.log(`a ^ c = ${a ^ c}`); /* retourne  true*/
+        /* si a est vrai OUX c est faux, alors a || c retourne vrai */
+        console.log(`c ^ d = ${c ^ d}`); /* retourne  false*/
+        /* si c est faux OUX d est faux, alors c ^ d retourne faux */
+
+        /*
+        exemple
+        créer les variables banane à vrai, chantilly à vrai, chocolat à vrai et poivre à faux
+        afficher en console le résultat de l'opération logique
+        si banane est vrai, chantilly est vrai, chocolat est vrai et poivre est faux => on affiche vrai
+        */
+
+        let banane = true;
+        let chantilly = true;
+        let chocolat = true;
+        let poivre = false;
+        // banan split => chantilly, banane, chocolat et pas de poivre
+        console.log( (banane && chantilly && chocolat) && !poivre );
+
+        /*
+        exercice
+        si banane est vrai ou chantilly est vrai ou chocolat est vrai et poivre est faux => dessert donc afficher true
+        */
+        console.log( (banane || chantilly || chocolat) && !poivre );
+        /* 
+        si poivre === false
+        poivre !== true => true
+        !poivre => true
+        !poivre <=> poivre !== true 
+        */
+
+        /* 
+        les structures de condition 
+        le SI
+        si banane = true ET chantilly = true ET chocolat = true ET poivre est faux alors
+            c'est un banana split
+        */
+
+        if((banane && chantilly && chocolat) && !poivre){
+            console.log('c\'est un banana split');
+        }
+
+        /*
+        si banane = true OU chantilly = true OU chocolat = true ET poivre est faux alors
+            c'est un dessert
+        sinon
+            ce n'est pas un dessert
+        */
+
+        
+        banane = false;
+        if((banane || chantilly || chocolat) && !poivre){
+            console.log('c\'est un dessert');
+        }else{
+            console.log('ce n\'est pas un dessert');
+        }
+
+        /* 
+        si banane = true ET chantilly = true ET chocolat = true ET poivre est false alors
+            c'est un banana split
+        sinon si si banane = true OU chantilly = true OU chocolat = true ET poivre est false alors
+            c'est un dessert
+        sinon
+            ce n'est pas un dessert
+        */
+
+        poivre = true;
+        if((banane && chantilly && chocolat) && !poivre){
+            console.log('c\'est un banana split');
+        }else if((banane || chantilly || chocolat) && !poivre){
+            console.log('c\'est un dessert');
+        }else{
+            console.log('ce n\'est pas un dessert');
+        }
+
+
+
     </script>
 </head>
 
