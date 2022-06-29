@@ -1,0 +1,46 @@
+/*
+Surcharge CSS pour ma page sous bootstrap
+*/
+
+body{
+    --nav-bg-color: #1E1917; 
+    --nav-link-color: rgb(168, 177, 172);
+}
+
+.navbar-brand img{
+    /* une image qui a dnas ses parents un élément avec la classe navbar-brand */
+    width: 100px;
+}
+
+.custom-nav{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    background-color: var(--nav-bg-color)!important;
+}
+
+.custom-nav a, .custom-nav a:visited{
+    color: var(--nav-link-color);
+}
+
+body > header{
+    height: 33vh;
+    background: url('../images/cropped-wallhaven-fallout-4-01-3-1536x922.jpg');
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body > header > h1{
+    color: white;
+    text-shadow: 0 0 10px black;
+}
+
+img, video{
+    max-width: 100%;
+}
+
+table td, table th{
+    word-break: break-word;
+}

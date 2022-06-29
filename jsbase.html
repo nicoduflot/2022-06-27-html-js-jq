@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formation HTML5 - CSS3 - JavaScript - jQuery</title>
+    <!-- Commentaire en html -->
+    <!--
+        ici on va aller chercher les ressources css
+        ici on va aller chercher les ressources scripts (js, bibliothèques js, etc)
+    -->
+    <link rel="stylesheet" href="./css/style.css" media="screen" />
+    <link rel="stylesheet" href="./css/print.css" media="print" />
+    <script>
+        /* comme tout langage de programmation, JS utilise des variables */
+        /* les variables, en JS, ne sont pas typées */
+
+        /* variables "globales" */
+        var prenom = 'nicolas';
+        console.log(prenom);
+        console.log(typeof prenom);
+        var prenom = 'tutu'; // var permet(et c'est pas top) de redéclarer une variable qui existe encore
+        console.log(prenom);
+        console.log(typeof prenom);
+
+        /* variables "locales" */
+        let nom = 'duflot';
+        console.log(nom);
+        console.log(typeof nom);
+        let nombre = 10;
+        console.log(nombre);
+        console.log(typeof nombre);
+        nombre = '20.5';
+        nombre = parseFloat(nombre); // transtyper => changer le type d'une variable si possible
+        console.log(nombre);
+        console.log(typeof nombre);
+
+        /* variables constantes */
+        const FRANCAISMETRO = 'FR-fr';
+        const ANGLAISBRITANIQUE = 'EN-en';
+        const ANGLAISAMERICAIN = 'EN-us';
+        const GREENWICH = 'GMT';
+        const PARIS = 'GMT+1';
+        function maFonction(langue, fuseau){
+            // 'FR-fr' 'EN-en' 'EN-us'
+        }
+
+        maFonction(FRANCAISMETRO, GREENWICH); // ici, la fonction va utiliser FR-fr dans son éxécution pour la variable langue et GMT pour fuseau
+
+        /*
+        exercice :
+            créer trois variables, monNom, monPrenom, monAge
+            et les instancier avec les valeur appropriée
+            les afficher ensuite en console
+        */
+        
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Formation HTML5 - CSS3 - JavaScript - jQuery</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./">Accueil</a></li>
+            <li><a href="./contact.html">Nous contacter</a></li>
+            <!-- <li><a href="./cssavance.html">CSS avancé</a></li> -->
+            <li><a href="./article.html">Article</a></li>
+            <!-- <li><a href="./cssgrid.html">Grilles CSS</a></li> -->
+            <li><a href="./bootstrap.html">Bootstrap</a></li>
+            <li><a href="./jsbase.html">JS bases</a></li>
+            <li><a href="./rappelshtml.html">Rappels HTML</a></li>
+            <!-- <li><a href="./jquerybase">jQuery bases</a></li>
+            <li><a href="./jquerycss">jQuery CSS</a></li>
+            <li><a href="./jqueryajax">jQuery AJAX</a></li> -->
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <header>
+                    <h2>Javascript</h2>
+                </header>
+                <main>
+                    <h3>Ecmascript</h3>
+                    <p>
+                        Ecmascript (es) est une norme sur laquelle s'appuie JS. (ActionScript => flash, TypeScript).
+                    </p>
+                    <p>
+                        La dernière norme ecmascript es7 (2017, très peu de différences avec es6)
+                    </p>
+                    <ul>
+                        <li>es1 - 1997</li>
+                        <li>es2 - 1999</li>
+                        <li>es4 - version abandonnée</li>
+                        <li>es5 - 2009</li>
+                        <li>es6 - 2015</li>
+                        <li>es7 - 2017</li>
+                    </ul>
+                    <p>
+                        Jusqu'en 2010, JS était mal considéré par les développeurs ( peu normé, trop permissif )
+                    </p>
+                    <p>
+                        L'arrivée de Google Chrome, avec en plus l'envie de Google de refaire fonctionner correctement JS.
+                        Création du moteur d'interprétation V8.
+                        => un boost des capacitées de JS et son éxécution
+                    </p>
+                    <p>
+                        Grâce au V8, des nouveau langages ou méthode de développement sont arrivées, notemment NodeJs (2009), 
+                        qui s'appuis sur JS mais s'éxécute sur le serveur
+                    </p>
+                    <p>
+                        La convention du code en es6 est visible sur Github 
+                        <a href="https://github.com/elierotenberg/coding-styles/blob/master/es6.md" 
+                        target="_blank">
+                            es6
+                        </a>
+                    </p>
+                </main>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <h3>Sitemap</h3>
+            <ul>
+                <li><a href="./">Accueil</a></li>
+                <li><a href="./contact.html">Nous contacter</a></li>
+                <!-- <li><a href="./cssavance.html">CSS avancé</a></li> -->
+                <li><a href="./article.html">Article</a></li>
+                <!-- <li><a href="./cssgrid.html">Grilles CSS</a></li> -->
+                <li><a href="./bootstrap.html">Bootstrap</a></li>
+                <li><a href="./jsbase.html">JS bases</a></li>
+                <li><a href="./jquerybase">jQuery bases</a></li>
+                <li><a href="./jquerycss">jQuery CSS</a></li>
+                <li><a href="./jqueryajax">jQuery AJAX</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Liens utiles</h3>
+            <ul>
+                <li><a href="#">CGU</a></li>
+                <li><a href="#">CGV</a></li>
+                <li><a href="./contact.html">Nous contacter</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Nos RS</h3>
+            <ul>
+                <li>Facebook</li>
+                <li>twitter</li>
+                <li>Instagramm</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
