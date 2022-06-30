@@ -296,9 +296,78 @@ et mon age plus 10 ans : ${monAge + 10}
         */
 
         /* création - initialisation des variables */
+        let espece = 'cheval';
+        let race = 'shetland';
+        let genre = 'femelle';
 
         /* écriture des conditions  */
+        if('cheval' === espece && 'shetland' === race && 'femelle' === genre){
+            console.log('ce cheval est un shetland femelle');
+        }else if('cheval' === espece && 'shetland' === race && 'femelle' !== genre){
+            console.log('ce cheval est un shetland non femelle');
+        }else if('cheval' === espece && 'shetland' !== race ){
+            console.log('ce cheval n\'est pas un shetland');
+        }else{
+            console.log('ce n\'est pas un cheval');
+        }
+
+        /* le transformer en fonction */
+        function isHorseFemaleShetland(espece, race, genre){
+            if('cheval' === espece && 'shetland' === race && 'femelle' === genre){
+                return 'ce cheval est un shetland femelle';
+            }else if('cheval' === espece && 'shetland' === race && 'femelle' !== genre){
+                return 'ce cheval est un shetland non femelle';
+            }else if('cheval' === espece && 'shetland' !== race ){
+                return 'ce cheval n\'est pas un shetland';
+            }else{
+                return 'ce n\'est pas un cheval';
+            }
+        }
+        /* utiliser la fonction avec les variables espece, race et genre en paramètre */
+        console.log(isHorseFemaleShetland('cheval', 'shetland', 'femelle'));
+        console.log(isHorseFemaleShetland('cheval', 'shetland', 'male'));
+        console.log(isHorseFemaleShetland('cheval', 'palooza', 'male'));
+        console.log(isHorseFemaleShetland('chien', 'Spitzer', 'male'));
+
+        /* yoda code */
+        /*
+        // petit bout de code en java
+        String a = "Chaîne";
+        a.equal("Chaîne"); // retourne true
+
+        String b = null;
+        b.equal("Chaîne"); // NullPointerException
+
+        //yoda
+        "Chaîne".equal(b); // false
+        */
+
+        /* 
+        les conditions if else peuvent, par moment être raccourcies en une ligne.
+        Cette façon de les écrire s'appele un ternaire
+        */
+
+        let f = 'camion';
+        let klaxon = '';
+
+        if('camion' === f){
+            klaxon = 'POUET POUET';
+        }else{
+            klaxon = 'POUET';
+        }
+
+        console.log(klaxon);
+
+        /* 
+        le ternaire 
+        ( condition )? résultat si la condition est vrai : résultat si la condition est fausse;
+        */
+        const KXCAMION = 'POUET POUET';
+        const KXAUTRE = 'POUET';
+        console.log( ('camion' === f)? 'POUET POUET' : 'POUET' );
+        klaxon = ('camion' === f)? KXCAMION : KXAUTRE;
         
+        console.log(`klaxon : ${klaxon}`);
 
     </script>
 </head>
