@@ -441,13 +441,23 @@ voiture : ${voiture}, ambulance : ${ambulance}
         si role est 'rh' alors renvoyer 'controleur des péons'
         si role est 'manager alors renvoyer 'controleur des péons'
         si autre alors renvoyer 'stagiaire ou visiteur'
-
         */
 
         function defineEmployeeRole(role){
             let reponse = '';
             // switch selon role
-            
+            switch(role){
+                case 'employé':
+                    reponse = `${role}: péon niveau 1`;
+                break;
+                case 'rh':
+                case 'manager':
+                    /* reponse = role + ' : contrôleur des péons';*/
+                    reponse = `${role}: contrôleur des péons`;
+                break;
+                default:
+                    reponse = `${role}: stagiaire ou visiteur`;
+            }
             return reponse;
         }
 
@@ -455,6 +465,95 @@ voiture : ${voiture}, ambulance : ${ambulance}
         console.log(defineEmployeeRole('rh'));          /* retourne 'controleur des péons' */
         console.log(defineEmployeeRole('manager'));     /* retourne 'controleur des péons' */
         console.log(defineEmployeeRole('Mr Duchemin')); /* retourne 'stagiaire ou visiteur' */
+
+        /* 
+        les tableaux 
+        le tableau est une variable contenant une collection d'élément
+        un tableau est de base indexé : la première "case" du tableau possède l'index 0, la deuxième l'index 1, la nième possède l'index n-1;
+        */
+
+        let tab = new Array('titi', 'toto', 'tata'); /* ON NE CREE PLUS LES TABLEAU AINSI ! PAS BIEN ! VERBOTTEN ! */
+        console.log(tab);
+
+        /* Maintenant on fait ça avec simplicité et élégance, comme ma tenue du dimanche */
+        let cars = ['Peugeot', 'Ford'];
+        console.log(cars);
+        console.log(cars.length);
+        console.log(typeof cars);
+        /* 
+        un tableau en JS est un objet, mais il est naturellement ITERABLE 
+        itérable => on peut l'itérer, c'est à dire qu'on peut parcourir 
+        le tableau du premier au dernier élément (par exemple)
+        */
+
+        console.log(cars[0]);
+        console.log(cars[1]);
+
+        /*
+        ajouter un élément dans le tableau
+        un élément à la suite
+        */
+
+        /*
+        // cette méthode là n'est pas conseillée pour ajouter des valeurs, 
+        plutôt pour remplacer ou modifier des valeur
+        cars[5] = 'Hyundai';
+        cars[3] = 'Fiat';
+        console.log(cars);
+        console.log(cars.length);
+        */
+
+        cars.push('Hyundai');
+        console.log(cars);
+        console.log(cars.length);
+
+        cars.push('Fiat', 'Peugeot', 'Citroën');
+        console.log(cars);
+        console.log(cars.length);
+
+        /*
+        retirer des valeur d'un tableau (3 méthodes possible)
+        */
+
+        /* retirer le dernier élément du tableau */
+
+        let lastEntry = cars.pop();
+        console.log(lastEntry);
+        /* 
+        cette méthode ne supprime pas réellement le dernier élément 
+        en réalité, elle extrait la valeur
+        si la valeur extraite n'est pas récupérée dans une variable, 
+        alors là la valeur est simplement supprimée
+        */
+        console.log(cars);
+        console.log(cars.length);
+
+        /* retirer le premier élément du tableau */
+
+        let firstEntry = cars.shift();
+        console.log(firstEntry);
+        /* 
+        cette méthode ne supprime pas réellement le premier élément 
+        en réalité, elle extrait la valeur
+        si la valeur extraite n'est pas récupérée dans une variable, 
+        alors là la valeur est simplement supprimée
+        */
+        console.log(cars);
+        console.log(cars.length);
+
+        cars.push(lastEntry, firstEntry);
+        console.log(cars);
+        console.log(cars.length);
+
+        /* retirer (extraire) DES valeurs dans le tableau */
+        let extractMiddle = cars.splice(2, 2);
+        console.log(extractMiddle);
+        console.log(cars);
+
+        /* réinjecter ces valeurs dans le tableau */
+        cars.splice(2, 0, extractMiddle[0], extractMiddle[1]);
+        console.log(cars);
+
 
     </script>
 </head>
