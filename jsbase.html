@@ -675,6 +675,72 @@ voiture : ${voiture}, ambulance : ${ambulance}
             console.log(value);
         }
 
+        /*
+        les fonctions
+        un fonction est un traitement externalisé, 
+        et est appelable plusieurs fois dans une script, 
+        plutôt que d'être écrit en entier plusieurs fois dans ce script
+
+        une fonction, selon l'endroit où elle est déclaré sera appelé fonction ou méthode
+        une fonction est déclarée dans un script, une méthode est déclarée comme fonction d'une classe
+        => on ne peut l'utiliser qu'à travers un objet généré par la classe
+
+        exemple
+        une classe Avion dans la quelle on déclare une fonction decoller()
+        décoller() et donc une méthode de la classe Avion
+        si je crée un avion généré par la classe Avion
+        => let avion = new Avion();
+        je pourrait utiliser la méthode via l'objet avion
+        => avion.decoller();
+        */
+
+        /* fonction simple */
+        function maFonctionSimple(){
+            // code de la fonction
+            return 'Je suis une fonction simple';
+        }
+
+        function uneAutreFonctionSimple(){
+            // code de la fonction
+            console.log('Je suis une autre fonction simple');
+        }
+
+        /* appeler un fonction simle */
+
+        let resFonctionSimple = maFonctionSimple();
+        console.log(resFonctionSimple);
+
+        uneAutreFonctionSimple();
+
+        /* fonction avancée : fonction appelée avec des paramètres */
+
+        function addition(a = 0, b = 0){
+            return a + b;
+        }
+
+        console.log(addition(1, 2));
+        console.log(addition(2));
+        console.log(addition());
+
+        /* 
+        un paramètre de fonction particulier opérateur variadique, rest parameter, ...variable 
+        une fonction qui possède dans sa déclaration ...variable indique qu'elle peut recevoir 
+        de 0 à x paramètre en entrée à partir du pramètre ...variable
+        */
+
+        function addition2(toto = 'et', ...valeurs){
+            console.log(valeurs);
+            console.log(toto);
+            let resultat = 0;
+            for(index in valeurs){
+                resultat = resultat + valeurs[index]
+            }
+            return resultat
+        }
+
+        let resultatFonctionAddition2 = addition2('titi', 1, 2,3,4,5,6,7,8,9);
+        console.log(resultatFonctionAddition2);
+
     </script>
 </head>
 
