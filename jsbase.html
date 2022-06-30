@@ -32,7 +32,7 @@
         console.log(nombre);
         console.log(typeof nombre);
         nombre = '20.5';
-        nombre = parseFloat(nombre); // transtyper => changer le type d'une variable si possible
+        nombre = parseFloat(nombre); /* transtyper => changer le type d'une variable si possible */
         console.log(nombre);
         console.log(typeof nombre);
 
@@ -365,9 +365,73 @@ et mon age plus 10 ans : ${monAge + 10}
         const KXCAMION = 'POUET POUET';
         const KXAUTRE = 'POUET';
         console.log( ('camion' === f)? 'POUET POUET' : 'POUET' );
+
         klaxon = ('camion' === f)? KXCAMION : KXAUTRE;
         
         console.log(`klaxon : ${klaxon}`);
+
+        /*
+        Autre structure de condition : switch
+
+        créer une variable parfum, l'initialiser avec 'chocolat'
+
+        selon la variable parfum, si c'est égale à
+            cas ou variable est chocolat
+                - chocolat rime avec beluga
+            cas ou variable est vanille
+                - vanille rime avec gerbille
+            
+            etc ...
+            
+            par défaut : 
+                - ce parfum n'est pas enregistré, poil au nez.
+
+        les conditions écrites en "if - else if"
+        if('chocolat' === parfum || 'stracciatela' === parfum){
+            //
+        }else if('vanille' === parfum){
+            //
+        }else if('mangue' === parfum){
+            //
+        }else if('pistache' === parfum){
+            //
+        }else{
+            //
+        }
+        */
+
+        let parfum = 'chocolat';
+
+        switch(parfum){
+            case 'chocolat':
+            case 'stracciatela' :
+                console.log(`${parfum} rime avec beluga`);
+            break;
+            case 'vanille':
+                console.log(`${parfum} rime avec gerbille`);
+            break;
+            case 'mangue':
+                console.log(`${parfum} rime avec gang`);
+            break;
+            case 'pistache':
+                console.log(`${parfum} rime avec  "t'as une tâche !"`);
+            break;
+            default: 
+                console.log(`le parfum "${parfum}" n'existe pas dans la boutique`);
+        }
+
+        let voiture = true;
+        let ambulance = false;
+        switch(voiture || ambulance){
+            case true:
+                console.log(`c'est une voiture, ou une ambulance ou les deux
+voiture : ${voiture}, ambulance : ${ambulance}
+                `);
+            break;
+            case false:
+                console.log(`ce n'est ni une voiture ni une ambulance`);
+            break;
+        }
 
     </script>
 </head>
