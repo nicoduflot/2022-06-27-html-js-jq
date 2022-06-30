@@ -553,7 +553,127 @@ voiture : ${voiture}, ambulance : ${ambulance}
         /* réinjecter ces valeurs dans le tableau */
         cars.splice(2, 0, extractMiddle[0], extractMiddle[1]);
         console.log(cars);
+        /*
+        on ne peut pas faire une copie d'un tableau de la façon suivante
+        */
+        /*
+        let cloneCars = cars;
+        console.log(cloneCars);
 
+        cloneCars.pop();
+        console.log(cars);
+        */
+        /*
+        on crée en réalité une nouvelle référence au tableau original, 
+        donc un alias de nom, si on fait des action sur cet alias, on agis en fait sur le tableau d'origine
+        */
+
+        /*
+        pour copier les éléments d'un tableau dans un nouveau tableau dissocié du tableau d'origine, il faut utiliser la méthode slice()
+        */
+
+        let cloneCars = cars.slice();
+        console.log(cloneCars);
+        /* slice, c'est copier tout ou une tranche du tableau d'origine */
+        cloneCars.pop();
+        console.log(cloneCars);
+        console.log(cars);
+
+        /* 
+        les boucles 
+        les boucle servent a éxécuter une série d'instruction un nombre déterminé de fois
+        */
+
+        /* 
+        boucle for 
+        pour un compteur à 0; tant que le compteur est inférieur au nombre d'éléments du tableau; le compteur augmente de 1 à chaque tour
+            j'affiche tableau[compteur]
+        fin pour
+        */
+
+        /* 
+            ajouter en itération => incrémenter
+            i = i + 1 peut être raccourcis par un opéraeur d'itération ++
+            i = i + 1 => i++
+            
+            retirer en itération => décrémenter
+            i = i - 1 peut être raccourcis par un opéraeur d'itération --
+            i = i - 1 => i--
+        */
+
+        console.log('--------------- boucle for ----------------');
+
+        for(let i = 0; i < cars.length; ++i){
+            console.log(cars[i]);
+            /* ici en utilisant ++i au lieu de i++ on évite un test supplémentaire inutile, ça améliore les perfs */
+        }
+
+        /*
+        boucle while (tant que)
+        variable i  = 0
+        tant que i est strictement inférieur à la longueur du tableau 
+            affiche tableau[i]
+            i est augmenter de 1
+        fin tant que
+        */
+
+        console.log('--------------- boucle while ----------------');
+
+        let i = 0;
+        while(i < cars.length){
+            console.log(cars[i]);
+            ++i; 
+            /* ici en utilisant ++i au lieu de i++ on évite un test supplémentaire inutile, ça améliore les perfs */
+        }
+
+        let nombre1 = 0;
+        console.log(nombre1++); /* 0 => on exploite nombre1 à sa valeur 0 de base puis on l'augmente de 1 */
+        console.log(nombre1);   /* 1 => on voit bien que nombre1 a été augmenté de 1 */
+        console.log(++nombre1); /* 2 => on augmente d'abord nombre1 de 1 puis on l'exploite à sa nouvelle valeur */
+
+        /*
+        boucle do while (faire tant que)
+        faire
+            le code de la boucle
+        tant que la condition n'est pas atteinte
+        */
+
+        console.log('--------------- boucle do while ----------------');
+        i = 0;
+
+        do{
+            console.log(cars[i]);
+            ++i
+        }while(i < cars.length)
+
+        /*
+        des boulces de parcours sans itérateur
+        */
+
+        let tabPourri = [];
+
+        tabPourri.push('blette', 'carotte', 'choux');
+        tabPourri[6] = 'haricot';
+
+        console.log(tabPourri);
+
+        /*
+        la boucle de parcour de tableau "for in" permet d'itérer sur chaque élément du tableau
+        */
+        console.log('--------------- boucle for in ----------------');
+        for(let index in tabPourri){
+            /* console.log(index);*/
+            console.log(tabPourri[index]);
+        }
+
+        /*
+        la boucle de parcour de tableau "for of" permet aussi d'itérer sur chaque élément du tableau
+        depuis es6
+        */
+        console.log('--------------- boucle for of ----------------');
+        for(let value of tabPourri){
+            console.log(value);
+        }
 
     </script>
 </head>
