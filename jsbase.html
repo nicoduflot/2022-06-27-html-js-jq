@@ -433,6 +433,29 @@ voiture : ${voiture}, ambulance : ${ambulance}
             break;
         }
 
+        /*
+        exo switch
+        
+        créer dans une fonction un switch selon le role
+        si role est 'employé' alors renvoyer 'péon niveau 1'
+        si role est 'rh' alors renvoyer 'controleur des péons'
+        si role est 'manager alors renvoyer 'controleur des péons'
+        si autre alors renvoyer 'stagiaire ou visiteur'
+
+        */
+
+        function defineEmployeeRole(role){
+            let reponse = '';
+            // switch selon role
+            
+            return reponse;
+        }
+
+        console.log(defineEmployeeRole('employé'));     /* retourne 'péon niveau 1' */
+        console.log(defineEmployeeRole('rh'));          /* retourne 'controleur des péons' */
+        console.log(defineEmployeeRole('manager'));     /* retourne 'controleur des péons' */
+        console.log(defineEmployeeRole('Mr Duchemin')); /* retourne 'stagiaire ou visiteur' */
+
     </script>
 </head>
 
