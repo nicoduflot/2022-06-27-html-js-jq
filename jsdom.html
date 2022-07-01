@@ -11,9 +11,76 @@
         ici on va aller chercher les ressources scripts (js, bibliothèques js, etc)
     -->
     <link rel="stylesheet" href="./css/style.css" media="screen" />
+    <link rel="stylesheet" href="./css/cssdom.css" media="screen" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
     <script>
+        /*
+        récupérer un élément du DOM dans une variable 
+        ancienne méthode en utilisant id
+        let paragraphe = document.getElementById('checkP');
+        console.log(paragraphe);
 
+        ancienne méthode en utilisant id
+        let paragraphe = document.getElementByName('checkP');
+        console.log(paragraphe);
+        */
+        console.log('début du chargement de la page');
+
+        window.addEventListener('DOMContentLoaded', function(evenement){
+            console.log('La page est chargé, maintenant on agis sur le DOM');
+            console.log(evenement); 
+            /* 
+            la variable evenement ajoutée dans les paramètres de la fonction de rappel
+            (aussi appelée fonction anonyme car elle n'a pas de nom) récupère toutes 
+            les informations de l'évènement écouté, ces infos sont le retour 
+            de la fonction addEventListener
+            */
+
+            let buttonCheckP = document.querySelector('p .testez-moi');
+            console.log(buttonCheckP);
+            console.log(buttonCheckP.innerHTML);
+            buttonCheckP.classList.add('toutou', 'titi');
+            console.log(buttonCheckP);
+            buttonCheckP.classList.remove('toutou');
+
+            buttonCheckP.addEventListener('click', function(evenement){
+                console.log('On a cliqué sur le bouton "testez moi"');
+                console.log(evenement);
+            });
+
+            buttonCheckP.addEventListener('mouseover', function(){
+                console.log('On survol le bouton "testez moi"');
+            });
+
+            document.addEventListener('click', function(evenement){
+                console.log(`clique page, x ${evenement.pageX}: , y : ${evenement.pageY}`);
+            });
+
+            let allP = document.querySelectorAll('p:not(p#special)');
+            console.log(allP);
+
+            /* 
+            il existe un type de boucle "avancé" qui permet 
+            plus facilement la manipulation des tableau d'objet 
+            */
+
+            allP.forEach(function(paragraphe, key, tableau){
+                /*if('special' !== paragraphe.id){*/
+                    console.log(paragraphe, key, tableau);
+                    paragraphe.addEventListener('click', function(){
+                        console.log(paragraphe.innerText);
+                    });
+                /*}*/
+            });
+
+        });
+        /*
+        //ça ne marchera pas car le dom n'est pas chargé 
+        //alors qu'on essaie d'y trouver un élément inexistant
+        let buttonCheckP = document.querySelector('p .testez-moi');
+        console.log(buttonCheckP);
+        */
+        
     </script>
 </head>
 
@@ -44,6 +111,9 @@
                     <h2>Javascript - Manipuler le DOM</h2>
                 </header>
                 <main>
+                    <p>
+                        DOM : Document Objet Model
+                    </p>
                     <p>
                         le <b>DOM</b> nous permet de repérer, analyser, modifier et 
                         supprimer des éléments de la page HTML
@@ -80,7 +150,7 @@
                         fugit a perferendis.
                     </p>
                     <figure>
-                        <img src="../images/pip-boy-thumb-down.png" alt="Pip boy sans le bras droit" width="200" id="imgOver" />
+                        <img src="./images/pip-boy-thumb-down.png" alt="Pip boy sans le bras droit" width="200" id="imgOver" />
                         <figcaption>
                             Pip boy sans le bras droit
                         </figcaption>
@@ -125,5 +195,7 @@
         </div>
     </footer>
 </body>
-
+<script>
+    console.log('fin du chargement de la page');
+</script>
 </html>
