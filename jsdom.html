@@ -27,6 +27,9 @@
         console.log('début du chargement de la page');
 
         window.addEventListener('DOMContentLoaded', function(evenement){
+
+            var createOneElement = true;
+
             console.log('La page est chargé, maintenant on agis sur le DOM');
             console.log(evenement); 
             /* 
@@ -51,11 +54,11 @@
             buttonCheckP.addEventListener('mouseover', function(){
                 console.log('On survol le bouton "testez moi"');
             });
-
+/*
             document.addEventListener('click', function(evenement){
                 console.log(`clique page, x ${evenement.pageX}: , y : ${evenement.pageY}`);
             });
-
+*/
             let allP = document.querySelectorAll('p:not(p#special)');
             console.log(allP);
 
@@ -72,15 +75,106 @@
                     });
                 /*}*/
             });
+            
+            let imgPipBoy = document.querySelector('img#imgOver');
+            console.log(imgPipBoy);
+            console.log(imgPipBoy.parentNode);
+            console.log(imgPipBoy.parentNode.childNodes);
+            imgPipBoy.addEventListener('mouseover', function(){
+                imgPipBoy.setAttribute('src', './images/pip-boy-thumb-up.png');
+                imgPipBoy.setAttribute('alt', 'Pip boy avec le bras droit');
+                imgPipBoy.parentNode.childNodes.forEach(function(enfant){
+                    if('FIGCAPTION' === enfant.nodeName){
+                        enfant.innerHTML = 'Pip boy avec le bras droit';
+                    }
+                });
+            });
+
+            imgPipBoy.addEventListener('mouseout', function(){
+                imgPipBoy.setAttribute('src', './images/pip-boy-thumb-down.png');
+                imgPipBoy.setAttribute('alt', 'Pip boy sans le bras droit');
+                imgPipBoy.parentNode.childNodes.forEach(function(enfant){
+                    if('FIGCAPTION' === enfant.nodeName){
+                        enfant.innerHTML = 'Pip boy sans le bras droit';
+                    }
+                });
+            });
+
+            /* moins bonne méthode d'ajout d'élément page */
+
+            document.querySelector('#addHTMLElement').addEventListener('click', function(){
+                document.querySelector('#addInnerHTML').innerHTML = `
+<div 
+    style="
+        width:200px;height:50px;
+        border-radius:5px;
+        border:1px solid red" 
+        id="testHTMLAdded" 
+        data-test="OK !">
+    Clique moi !
+</div>
+                `;
+            });
+
+            /*
+            // impossible, l'élément n'existe pas après le chargement complet de la page,
+            // donc impossible de guetter un évènement dessus
+            document.querySelector('#testHTMLAdded').addEventListener('click', function(){
+                console.log('on a cliqué dans le html injecté');
+            });
+            */
+
+            document.querySelector('#addInnerHTML').addEventListener('click', function(event){
+                console.log(event.target.dataset.test);
+                //console.log('on a cliqué dans le html injecté');
+                if('OK !' === event.target.dataset.test){
+                    console.log('on a cliqué dans le html injecté');
+                }
+            });
+
+            /* meilleure méthode pour ajouter des éléments dans LE DOM */
+
+            /*
+            //ça ne marchera pas car le dom n'est pas chargé 
+            //alors qu'on essaie d'y trouver un élément inexistant
+            let buttonCheckP = document.querySelector('p .testez-moi');
+            console.log(buttonCheckP);
+            */
+            //createElement
+            //addCreateElement
+            /*
+            createOneElement
+            */
+            /*var cpt = 0;*/
+            document.querySelector('#createElementPage').addEventListener('click', function(){
+                console.log('createElementPage');
+                /*if(createOneElement){*/
+                    let div = document.createElement('div');
+                    div.setAttribute('style', 'width:200px;height:50px;border-radius:5px;border:1px solid red');
+                    div.setAttribute('id', 'testCreateElement');
+                    div.setAttribute('data-test', 'OK !');
+                    div.textContent = `Clique moi ! `;
+                    div.addEventListener('click', function(){
+                        console.log('on a cliqué dans l\'élément ajouté dans le DOM');
+                    });
+                    console.log(div);
+                    document.getElementById('addCreateElement').appendChild(div);
+                    /*
+                    document.getElementById('addCreateElement').append(div);
+                    // append fonctionne de la même manière que appendChild
+                    */
+                    /*cpt++;*/
+                    createOneElement = false;
+                    document.querySelector('#createElementPage').setAttribute('disabled', 'disabled');
+                /*}*/               
+            });
+
+
 
         });
-        /*
-        //ça ne marchera pas car le dom n'est pas chargé 
-        //alors qu'on essaie d'y trouver un élément inexistant
-        let buttonCheckP = document.querySelector('p .testez-moi');
-        console.log(buttonCheckP);
-        */
         
+
+
     </script>
 </head>
 
@@ -155,6 +249,38 @@
                             Pip boy sans le bras droit
                         </figcaption>
                     </figure>
+                </main>
+            </article>
+            <article>
+                <header>
+                    <h2>Créer des éléments dans le DOM</h2>
+                </header>
+                <main>
+                    <h3>Methode la moins bien</h3>
+                    <p>
+                        on peut injecter du HTML dans des éléments 
+                        du DOM avec l'attribut "innerHTML" des éléménts
+                    </p>
+                    <button id="addHTMLElement">
+                        Ajouter un élément en dessous.
+                    </button>
+                    <div id="addInnerHTML">
+
+                    </div>
+                    <h3>La meilleure méthode</h3>
+                    <p>
+                        on va créer des élément avec la fonction 
+                        createElement(), dès l'utilisation de cette fonction,
+                        les élémnets existent dans le DOM donc 
+                        on peut surveiller leurs évènements avant même 
+                        de les afficher sur la page.
+                    </p>
+                    <button id="createElementPage">
+                        Ajouter un élément en dessous.
+                    </button>
+                    <div id="addCreateElement">
+
+                    </div>
                 </main>
             </article>
         </section>
