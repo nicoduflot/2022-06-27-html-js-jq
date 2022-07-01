@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formation HTML5 - CSS3 - JavaScript - jQuery</title>
+    <!-- Commentaire en html -->
+    <!--
+        ici on va aller chercher les ressources css
+        ici on va aller chercher les ressources scripts (js, bibliothèques js, etc)
+    -->
+    <link rel="stylesheet" href="./css/style.css" media="screen" />
+    <link rel="stylesheet" href="./css/cssdom.css" media="screen" />
+    <link rel="stylesheet" href="./css/print.css" media="print" />
+    <script src="./js/script.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function (evenement) {
+            /* AJAX en utlisant XHR */
+            //pour utiliser AJAX,il faut d'abord créer une connexion xhr XmlHttpRequest
+            let xhr = getXhr();
+            console.log(xhr);
+            let result = document.querySelector('#result');
+            let content = '';
+
+            document.querySelectorAll('.read').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    /* ajax en synchrone */
+                    /*
+                    xhr.open('GET', btn.dataset.url, false);
+                    xhr.send();
+                    let reponse = xhr.responseText;
+                    console.log(reponse);
+                    */
+                    xhr.onreadystatechange = function () {
+                        /*
+                        0 : unsent              -> .open() n'a pas encore été appelée
+                        1 : openned             -> .open() a été appelée
+                        2 : headers_received    -> les enteêtes de la requêtes ont été reçu par la cible
+                        3 : loading             -> la requête est en cours de traîtement
+                        4 : done                -> le traitement de la requête est fini, la réponse est utilisable
+                        */
+                        if (200 !== xhr.status) {
+                            if (404 === xhr.status) {
+                                content = `<div>
+                                <b style="color:darkred;">${xhr.status} : ${xhr.statusText}</b><br />
+                                La ressource ${btn.dataset.url} n'existe pas ou le chemin vers cette ressource est erroné
+                                </div>`;
+                            } else {
+                                content = `<div>
+                                <b style="color:darkred;">${xhr.status} : ${xhr.statusText}</b><br />
+                                La ressource ${btn.dataset.url}
+                                </div>`;
+                            }
+                            result.innerHTML = content;
+                        }
+
+                        if (200 === xhr.status) {
+                            result.innerHTML = xhr.responseText;
+                        }
+                    };
+                    xhr.open('GET', btn.dataset.url);
+                    xhr.send();
+                    console.log(xhr.onerror);
+                });
+            });
+
+            /* AJAX en utilisant fetch */
+            let resultFetch = document.querySelector('#resultFetch');
+            document.querySelectorAll('.fetch').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    fetch(this.dataset.url)
+                    .then(function (reponse) {
+                        return reponse.text();
+                    })
+                    .then(function (leTexte) {
+                        resultFetch.innerHTML = leTexte;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                        resultFetch.innerHTML = error;
+                    })
+                    .finally(function () {
+                        console.log(`La requête vers ${btn.dataset.url}`);
+                    })
+                    .then(function () {
+                        console.log('toto');
+                    });
+                });
+            });
+
+            /* 
+            json permet d'écrire des pbjet en mode "texte" 
+
+            {
+                "id": 1,
+                "name": "Leanne Graham",
+                "username": "Bret",
+                "email": "Sincere@april.biz",
+                "address": {
+                    "street": "Kulas Light",
+                    "suite": "Apt. 556",
+                    "city": "Lille",
+                    "zipcode": "59000",
+                }
+            }
+            */
+
+            /* 
+            on voit que l'objet litéral créé en dessous 
+            à la même structure de le user en json ci-dessus 
+            */
+            let user = {
+                id: 1,
+                name: "Leanne Graham",
+                username: "Bret",
+                email: "Sincere@april.biz",
+                address: {
+                    street: "Kulas Light",
+                    suite: "Apt. 556",
+                    city: "Lille",
+                    zipcode: "59000"
+                }
+            };
+
+            console.log(user);
+
+            let resultTHead = document.querySelector('#resultJson thead');
+            let resultTBody = document.querySelector('#resultJson tbody');
+            document.querySelectorAll('.json').forEach(function(btn){
+                btn.addEventListener('click', function () {
+                    //console.log();
+                    fetch(this.dataset.url)
+                    .then(function (reponse) {
+                        return reponse.json();
+                    })
+                    .then(function (data) {
+                        console.log(afficheJsonToTable(data)[0]);
+                        resultTHead.innerHTML = afficheJsonToTable(data)[0];
+                        resultTBody.innerHTML = afficheJsonToTable(data)[1];
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                        resultJson.innerHTML = error;
+                    })
+                    .finally(function () {
+                        console.log(`La requête vers ${btn.dataset.url}`);
+                    })
+                    .then(function () {
+                        console.log('toto');
+                    });
+                });
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Formation HTML5 - CSS3 - JavaScript - jQuery</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./">Accueil</a></li>
+            <li><a href="./contact.html">Nous contacter</a></li>
+            <!-- <li><a href="./cssavance.html">CSS avancé</a></li> -->
+            <li><a href="./article.html">Article</a></li>
+            <!-- <li><a href="./cssgrid.html">Grilles CSS</a></li> -->
+            <li><a href="./bootstrap.html">Bootstrap</a></li>
+            <li><a href="./jsbase.html">JS bases</a></li>
+            <li><a href="./jsdom.html">JS DOM</a></li>
+            <li><a href="./jsajax.html">JS AJAX</a></li>
+            <li><a href="./rappelshtml.html">Rappels HTML</a></li>
+            <!-- <li><a href="./jquerybase">jQuery bases</a></li>
+            <li><a href="./jquerycss">jQuery CSS</a></li>
+            <li><a href="./jqueryajax">jQuery AJAX</a></li> -->
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <header>
+                    <h2>
+                        AJAX - Asynchronous Javascript And Xml
+                    </h2>
+                </header>
+                <main>
+                    <h3>xhr : Xml Http Request</h3>
+                    <p>
+                        <button class="btn btn-secondary btn-sm read" data-url="./ressources/file.txt">
+                            Lire le fichier txt
+                        </button>
+                        <button class="btn btn-secondary btn-sm read" data-url="./dada/ressources/file.txt">
+                            Connexion à un mauvais fichier
+                        </button>
+                    </p>
+                    <div id="result">
+
+                    </div>
+                </main>
+            </article>
+        </section>
+        <section>
+            <article>
+                <header>
+                    <h2>
+                        AJAX - Asynchronous Javascript And Xml
+                    </h2>
+                </header>
+                <main>
+                    <h3>Fetch</h3>
+                    <p>
+                        <button class="btn btn-secondary btn-sm fetch" data-url="./ressources/file.txt">
+                            Lire le fichier txt
+                        </button>
+                        <button class="btn btn-secondary btn-sm fetch" data-url="./dada/ressources/file.txt">
+                            Connexion à un mauvais fichier
+                        </button>
+                    </p>
+                    <div id="resultFetch">
+
+                    </div>
+                </main>
+            </article>
+        </section>
+        <section>
+            <article>
+                <header>
+                    <h2>
+                        AJAX - Asynchronous Javascript And Xml
+                    </h2>
+                </header>
+                <main>
+                    <h3>Fetch du json</h3>
+                    <p>
+                        JSON : JavaScript Object Notation
+                    </p>
+                    <p>
+                        <button class="btn btn-secondary btn-sm json" data-url="./ressources/users.json">
+                            Lire users.json
+                        </button>
+                        <button class="btn btn-secondary btn-sm json" data-url="./ressources/bdd.json">
+                            Lire bdd.json
+                        </button>
+                        <button class="btn btn-secondary btn-sm json" data-url="./ressources/posts.json">
+                            Lire posts.json
+                        </button>
+                    </p>
+                    <table id="resultJson">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </main>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <h3>Sitemap</h3>
+            <ul>
+                <li><a href="./">Accueil</a></li>
+                <li><a href="./contact.html">Nous contacter</a></li>
+                <!-- <li><a href="./cssavance.html">CSS avancé</a></li> -->
+                <li><a href="./article.html">Article</a></li>
+                <!-- <li><a href="./cssgrid.html">Grilles CSS</a></li> -->
+                <li><a href="./bootstrap.html">Bootstrap</a></li>
+                <li><a href="./jsbase.html">JS bases</a></li>
+                <li><a href="./jsdom.html">JS DOM</a></li>
+                <li><a href="./jsajax.html">JS AJAX</a></li>
+                <li><a href="./rappelshtml.html">Rappels HTML</a></li>
+                <!-- <li><a href="./jquerybase">jQuery bases</a></li>
+                <li><a href="./jquerycss">jQuery CSS</a></li>
+                <li><a href="./jqueryajax">jQuery AJAX</a></li> -->
+            </ul>
+        </div>
+        <div>
+            <h3>Liens utiles</h3>
+            <ul>
+                <li><a href="#">CGU</a></li>
+                <li><a href="#">CGV</a></li>
+                <li><a href="./contact.html">Nous contacter</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Nos RS</h3>
+            <ul>
+                <li>Facebook</li>
+                <li>twitter</li>
+                <li>Instagramm</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+<script>
+    console.log('fin du chargement de la page');
+</script>
+
+</html>

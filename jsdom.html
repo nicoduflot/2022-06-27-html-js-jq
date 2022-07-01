@@ -26,12 +26,12 @@
         */
         console.log('début du chargement de la page');
 
-        window.addEventListener('DOMContentLoaded', function(evenement){
+        window.addEventListener('DOMContentLoaded', function (evenement) {
 
             var createOneElement = true;
 
             console.log('La page est chargé, maintenant on agis sur le DOM');
-            console.log(evenement); 
+            console.log(evenement);
             /* 
             la variable evenement ajoutée dans les paramètres de la fonction de rappel
             (aussi appelée fonction anonyme car elle n'a pas de nom) récupère toutes 
@@ -46,19 +46,19 @@
             console.log(buttonCheckP);
             buttonCheckP.classList.remove('toutou');
 
-            buttonCheckP.addEventListener('click', function(evenement){
+            buttonCheckP.addEventListener('click', function (evenement) {
                 console.log('On a cliqué sur le bouton "testez moi"');
                 console.log(evenement);
             });
 
-            buttonCheckP.addEventListener('mouseover', function(){
+            buttonCheckP.addEventListener('mouseover', function () {
                 console.log('On survol le bouton "testez moi"');
             });
-/*
-            document.addEventListener('click', function(evenement){
-                console.log(`clique page, x ${evenement.pageX}: , y : ${evenement.pageY}`);
-            });
-*/
+            /*
+                        document.addEventListener('click', function(evenement){
+                            console.log(`clique page, x ${evenement.pageX}: , y : ${evenement.pageY}`);
+                        });
+            */
             let allP = document.querySelectorAll('p:not(p#special)');
             console.log(allP);
 
@@ -67,34 +67,34 @@
             plus facilement la manipulation des tableau d'objet 
             */
 
-            allP.forEach(function(paragraphe, key, tableau){
+            allP.forEach(function (paragraphe, key, tableau) {
                 /*if('special' !== paragraphe.id){*/
-                    console.log(paragraphe, key, tableau);
-                    paragraphe.addEventListener('click', function(){
-                        console.log(paragraphe.innerText);
-                    });
+                console.log(paragraphe, key, tableau);
+                paragraphe.addEventListener('click', function () {
+                    console.log(paragraphe.innerText);
+                });
                 /*}*/
             });
-            
+
             let imgPipBoy = document.querySelector('img#imgOver');
             console.log(imgPipBoy);
             console.log(imgPipBoy.parentNode);
             console.log(imgPipBoy.parentNode.childNodes);
-            imgPipBoy.addEventListener('mouseover', function(){
+            imgPipBoy.addEventListener('mouseover', function () {
                 imgPipBoy.setAttribute('src', './images/pip-boy-thumb-up.png');
                 imgPipBoy.setAttribute('alt', 'Pip boy avec le bras droit');
-                imgPipBoy.parentNode.childNodes.forEach(function(enfant){
-                    if('FIGCAPTION' === enfant.nodeName){
+                imgPipBoy.parentNode.childNodes.forEach(function (enfant) {
+                    if ('FIGCAPTION' === enfant.nodeName) {
                         enfant.innerHTML = 'Pip boy avec le bras droit';
                     }
                 });
             });
 
-            imgPipBoy.addEventListener('mouseout', function(){
+            imgPipBoy.addEventListener('mouseout', function () {
                 imgPipBoy.setAttribute('src', './images/pip-boy-thumb-down.png');
                 imgPipBoy.setAttribute('alt', 'Pip boy sans le bras droit');
-                imgPipBoy.parentNode.childNodes.forEach(function(enfant){
-                    if('FIGCAPTION' === enfant.nodeName){
+                imgPipBoy.parentNode.childNodes.forEach(function (enfant) {
+                    if ('FIGCAPTION' === enfant.nodeName) {
                         enfant.innerHTML = 'Pip boy sans le bras droit';
                     }
                 });
@@ -102,7 +102,7 @@
 
             /* moins bonne méthode d'ajout d'élément page */
 
-            document.querySelector('#addHTMLElement').addEventListener('click', function(){
+            document.querySelector('#addHTMLElement').addEventListener('click', function () {
                 document.querySelector('#addInnerHTML').innerHTML = `
 <div 
     style="
@@ -124,10 +124,10 @@
             });
             */
 
-            document.querySelector('#addInnerHTML').addEventListener('click', function(event){
+            document.querySelector('#addInnerHTML').addEventListener('click', function (event) {
                 console.log(event.target.dataset.test);
                 //console.log('on a cliqué dans le html injecté');
-                if('OK !' === event.target.dataset.test){
+                if ('OK !' === event.target.dataset.test) {
                     console.log('on a cliqué dans le html injecté');
                 }
             });
@@ -146,35 +146,40 @@
             createOneElement
             */
             /*var cpt = 0;*/
-            document.querySelector('#createElementPage').addEventListener('click', function(){
+            document.querySelector('#createElementPage').addEventListener('click', function () {
                 console.log('createElementPage');
                 /*if(createOneElement){*/
-                    let div = document.createElement('div');
-                    div.setAttribute('style', 'width:200px;height:50px;border-radius:5px;border:1px solid red');
-                    div.setAttribute('id', 'testCreateElement');
-                    div.setAttribute('data-test', 'OK !');
-                    div.textContent = `Clique moi ! `;
-                    div.addEventListener('click', function(){
-                        console.log('on a cliqué dans l\'élément ajouté dans le DOM');
-                    });
-                    console.log(div);
-                    document.getElementById('addCreateElement').appendChild(div);
-                    /*
-                    document.getElementById('addCreateElement').append(div);
-                    // append fonctionne de la même manière que appendChild
-                    */
-                    /*cpt++;*/
-                    createOneElement = false;
-                    document.querySelector('#createElementPage').setAttribute('disabled', 'disabled');
-                /*}*/               
+                let div = document.createElement('div');
+                div.setAttribute('style', 'width:200px;height:50px;border-radius:5px;border:1px solid red');
+                div.setAttribute('id', 'testCreateElement');
+                div.setAttribute('data-test', 'OK !');
+                div.textContent = `Clique moi ! `;
+                div.addEventListener('click', function () {
+                    console.log('on a cliqué dans l\'élément ajouté dans le DOM');
+                });
+                console.log(div);
+                document.getElementById('addCreateElement').appendChild(div);
+                /*
+                document.getElementById('addCreateElement').append(div);
+                // append fonctionne de la même manière que appendChild
+                */
+                /*cpt++;*/
+                createOneElement = false;
+                document.querySelector('#createElementPage').setAttribute('disabled', 'disabled');
+                /*}*/
             });
 
+            /* exercice */
 
-
+            let allButton = document.querySelectorAll('.btn-test');
+            let divAffiche = document.querySelector('#affButton');
+            allButton.forEach(function (element) {
+                element.addEventListener('click', function () {
+                    divAffiche.innerHTML = this.innerHTML;
+                    //divAffiche.innerHTML = element.innerHTML;
+                });
+            });
         });
-        
-
-
     </script>
 </head>
 
@@ -192,6 +197,7 @@
             <li><a href="./bootstrap.html">Bootstrap</a></li>
             <li><a href="./jsbase.html">JS bases</a></li>
             <li><a href="./jsdom.html">JS DOM</a></li>
+            <li><a href="./jsajax.html">JS AJAX</a></li>
             <li><a href="./rappelshtml.html">Rappels HTML</a></li>
             <!-- <li><a href="./jquerybase">jQuery bases</a></li>
             <li><a href="./jquerycss">jQuery CSS</a></li>
@@ -209,11 +215,11 @@
                         DOM : Document Objet Model
                     </p>
                     <p>
-                        le <b>DOM</b> nous permet de repérer, analyser, modifier et 
+                        le <b>DOM</b> nous permet de repérer, analyser, modifier et
                         supprimer des éléments de la page HTML
                     </p>
                     <p>
-                        Il faut que tous les éléments soient chargés pour qu'il soit 
+                        Il faut que tous les éléments soient chargés pour qu'il soit
                         possible d'agir sur eux avec JS.
                         On écoute l'évènement de la fenêtre DOMContentLoaded qui survient
                         quand la page est totalement chargée.
@@ -232,19 +238,20 @@
                         </button>
                     </p>
                     <div id="showP">
-                        
+
                     </div>
                     <p id="special">
-                        Lorem ipsum dolor sit amet 
-                        consectetur adipisicing elit. 
-                        Nihil hic numquam magnam ullam, 
-                        ea odio illo doloremque molestias 
-                        accusamus corporis corrupti doloribus 
-                        ab! Mollitia provident quibusdam libero, 
+                        Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit.
+                        Nihil hic numquam magnam ullam,
+                        ea odio illo doloremque molestias
+                        accusamus corporis corrupti doloribus
+                        ab! Mollitia provident quibusdam libero,
                         fugit a perferendis.
                     </p>
                     <figure>
-                        <img src="./images/pip-boy-thumb-down.png" alt="Pip boy sans le bras droit" width="200" id="imgOver" />
+                        <img src="./images/pip-boy-thumb-down.png" alt="Pip boy sans le bras droit" width="200"
+                            id="imgOver" />
                         <figcaption>
                             Pip boy sans le bras droit
                         </figcaption>
@@ -258,7 +265,7 @@
                 <main>
                     <h3>Methode la moins bien</h3>
                     <p>
-                        on peut injecter du HTML dans des éléments 
+                        on peut injecter du HTML dans des éléments
                         du DOM avec l'attribut "innerHTML" des éléménts
                     </p>
                     <button id="addHTMLElement">
@@ -269,10 +276,10 @@
                     </div>
                     <h3>La meilleure méthode</h3>
                     <p>
-                        on va créer des élément avec la fonction 
+                        on va créer des élément avec la fonction
                         createElement(), dès l'utilisation de cette fonction,
-                        les élémnets existent dans le DOM donc 
-                        on peut surveiller leurs évènements avant même 
+                        les élémnets existent dans le DOM donc
+                        on peut surveiller leurs évènements avant même
                         de les afficher sur la page.
                     </p>
                     <button id="createElementPage">
@@ -293,13 +300,13 @@
                         quelque soit le bouton
                     </p>
                     <p>
-                        <button class="btn-test">Je suis </button> 
-                        <button class="btn-test">Un bouton </button> 
-                        <button class="btn-test">Heureux d'être</button> 
-                        <button class="btn-test">Cliqué </button> 
+                        <button class="btn-test">Je suis </button>
+                        <button class="btn-test">Un bouton </button>
+                        <button class="btn-test">Heureux d'être</button>
+                        <button class="btn-test">Cliqué </button>
                     </p>
                     <div id="affButton">
-                        
+
                     </div>
                 </main>
             </article>
@@ -344,4 +351,5 @@
 <script>
     console.log('fin du chargement de la page');
 </script>
+
 </html>
